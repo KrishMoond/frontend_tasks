@@ -1,0 +1,33 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100 px-5">
+  <div class="flex">
+    <div
+      *ngFor="let card of cards; let first = first; let last = last"
+      class="w-72 p-10 flex flex-col justify-between text-white"
+      [style.background-color]="card.color"
+      [ngClass]="{
+        'rounded-l-xl': first,
+        'rounded-r-xl': last
+      }"
+    >
+      <div>
+        <!-- Icon circle -->
+        <div class="w-12 h-12 rounded-full bg-black/20 mb-6 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-widest mb-4">{{ card.title }}</h2>
+        <p class="text-sm leading-relaxed text-white/90 mb-8">{{ card.description }}</p>
+      </div>
+
+      <!-- Button -->
+      <button
+        class="w-fit px-6 py-2 rounded-full bg-white font-bold text-sm cursor-pointer hover:bg-white/85 transition-colors"
+        [style.color]="card.color"
+      >
+        Learn More
+      </button>
+    </div>
+  </div>
+</div>

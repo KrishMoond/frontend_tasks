@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0b0f2f;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.units-btn {
+    padding: 8px 12px;
+    border: none;
+    background: #1e2a78;
+    color: white;
+    border-radius: 5px;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* SEARCH */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-box button {
+    padding: 10px 15px;
+    background: #4c6ef5;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+/* MAIN */
+.main {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* LEFT */
+.left {
+    flex: 2;
+}
+
+.weather-card {
+    background: linear-gradient(to right, #4c6ef5, #5f3dc4);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.stats div {
+    flex: 1;
+    background: #1c1f4a;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.daily {
+    display: flex;
+    gap: 10px;
+}
+
+.daily div {
+    background: #1c1f4a;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+}
+
+/* RIGHT */
+.right {
+    flex: 1;
+    background: #1c1f4a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.hour {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .daily {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 500px) {
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,44 @@
+<h2 class="text-2xl font-bold mb-6">Audio Player</h2>
+<p class="text-gray-500 text-sm mb-6">Uses <strong>Template Reference Variable</strong> (<code class="bg-gray-100 px-1 rounded">#audioRef</code>) to control the native audio element directly.</p>
+
+<!-- Hidden native audio element controlled via template reference -->
+<audio #audioRef [src]="currentTrack.src"></audio>
+
+<!-- Player Card -->
+<div class="bg-gray-900 text-white rounded-xl p-6 max-w-md mb-6">
+  <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Now Playing</p>
+  <p class="text-xl font-bold">{{ currentTrack.title }}</p>
+  <p class="text-gray-400 mb-6">{{ currentTrack.artist }}</p>
+
+  <div class="flex items-center justify-center gap-4">
+    <button (click)="prev(audioRef)"
+      class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium">
+      ⏮ Prev
+    </button>
+    <button (click)="togglePlay(audioRef)"
+      class="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg text-sm font-bold">
+      {{ isPlaying ? '⏸ Pause' : '▶ Play' }}
+    </button>
+    <button (click)="next(audioRef)"
+      class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium">
+      Next ⏭
+    </button>
+  </div>
+</div>
+
+<!-- Track List -->
+<div class="max-w-md flex flex-col gap-2">
+  <div *ngFor="let track of tracks; let i = index"
+    (click)="selectTrack(i, audioRef)"
+    class="flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors"
+    [class.bg-blue-50]="i === currentIndex"
+    [class.border-blue-400]="i === currentIndex"
+    [class.border-gray-200]="i !== currentIndex">
+    <span class="text-sm font-bold w-5 text-gray-400">{{ i + 1 }}</span>
+    <div>
+      <p class="font-medium text-sm">{{ track.title }}</p>
+      <p class="text-xs text-gray-500">{{ track.artist }}</p>
+    </div>
+    <span *ngIf="i === currentIndex && isPlaying" class="ml-auto text-blue-500 text-xs font-bold">▶ Playing</span>
+  </div>
+</div>

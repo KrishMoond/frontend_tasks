@@ -1,0 +1,155 @@
+
+p {
+    color: blue;
+}
+
+
+.text {
+    color: red;
+}
+
+
+#mainTitle {
+    /* color: rgba(255, 0, 0, 0.8); */
+    color: #ff0000cc;
+    background-color: hsla(229, 100%, 50%, 0.582);
+    /* text-transform:inherit; */
+    text-indent: 100px;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+* {
+    font-family: Arial;
+}
+
+
+
+h1, h2 {
+    background-color: lightgray;
+}
+
+
+
+.container p {
+    color: purple;
+}
+
+.parent > p {
+    color: orange;
+}
+.parent > div > p {
+    color: cyan;
+}
+
+h3 + p {
+    color: brown;
+}
+
+h3 + p + p {
+    color: magenta;
+}
+h3 ~ p {
+    font-weight: bold;
+}
+
+h3 ~ p ~ p {
+    font-style: italic;
+}
+
+input[type] {
+    border: 2px solid black;
+}
+
+
+input[type="text"] {
+    background-color: lightyellow;
+}
+
+
+a[href^="https"] {
+    color: green;
+}
+
+a[href$=".pdf"] {
+    color: red;
+}
+
+a[href*="google"] {
+    font-weight: bold;
+}
+
+a:link {
+    color: blue;
+}
+
+a:active {
+    color: red;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: orange;
+}
+
+button:hover {
+    background-color: yellow;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color: green;
+}
+
+
+li:nth-child(2) {
+    color: blue;
+}
+
+
+li:not(:first-child) {
+    font-style: italic;
+}
+
+
+a[target="_blank"]::after {
+    content: " (opens in new tab)";
+    font-size: 0.8em;
+    color: gray;
+}
+
+div[title]::before {
+    content: attr(title) " - ";
+    font-weight: bold;
+}
+
+.pseudo::before {
+    content: "a ";
+}
+
+.pseudo::after {
+    content: " b";
+}
+
+.pseudo::first-letter {
+    font-size: 30px;
+}
+
+.pseudo::selection {
+    background: black;
+    color: white;
+}
+
+
+
+div.container p:hover {
+    background-color: pink;
+}

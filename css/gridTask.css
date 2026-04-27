@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  height: 90vh;
+}
+
+.box {
+  background-color: #7fc6cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.box1 {
+  grid-row: 1 / 4;   
+}
+
+.box2 {
+  grid-column: 2;
+}
+
+.box3 {
+  grid-column: 3;
+}
+
+.box4 {
+  grid-column: 2;
+}
+
+.box5 {
+  grid-column: 2;
+}
+
+.box6 {
+  grid-row: 2 / 4;   
+  grid-column: 3;
+}
+
+.box7 {
+  grid-column: 2;
+}
+
+.box8 {
+  grid-column: 2;
+}

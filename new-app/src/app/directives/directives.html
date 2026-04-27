@@ -1,0 +1,90 @@
+<h2 class="text-2xl font-bold mb-8">Angular Directives</h2>
+
+<div class="flex flex-col gap-8">
+
+  <!-- Task 1: Show / Hide Paragraph -->
+  <div class="border border-gray-200 rounded-lg p-5">
+    <h3 class="font-bold text-lg mb-1">Task 1 — Show / Hide Paragraph</h3>
+    <p class="text-gray-500 text-sm mb-4">Uses <code class="bg-gray-100 px-1 rounded">*ngIf</code> with an <code class="bg-gray-100 px-1 rounded">ng-template</code> else block</p>
+
+    <button (click)="showParagraph = !showParagraph"
+      class="bg-gray-900 text-white px-4 py-2 rounded text-sm mb-4">
+      {{ showParagraph ? 'Hide' : 'Show' }}
+    </button>
+
+    <div *ngIf="showParagraph; else hiddenBlock">
+      <p class="text-green-700 bg-green-50 border border-green-200 rounded p-3">
+        ✅ This paragraph is now visible!
+      </p>
+    </div>
+    <ng-template #hiddenBlock>
+      <p class="text-gray-400 italic">— Paragraph is hidden. Click Show to reveal it.</p>
+    </ng-template>
+  </div>
+
+  <!-- Task 2: Dynamic List Rendering -->
+  <div class="border border-gray-200 rounded-lg p-5">
+    <h3 class="font-bold text-lg mb-1">Task 2 — Dynamic List Rendering</h3>
+    <p class="text-gray-500 text-sm mb-4">Uses <code class="bg-gray-100 px-1 rounded">*ngFor</code> with index, first &amp; last</p>
+
+    <ul class="flex flex-col gap-2">
+      <li *ngFor="let fruit of fruits; let i = index; let isFirst = first; let isLast = last"
+        class="flex items-center gap-3 p-2 border border-gray-100 rounded">
+        <span class="text-gray-400 text-sm w-5">{{ i }}</span>
+        <span class="flex-1">{{ fruit }}</span>
+        <span *ngIf="isFirst" class="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded">First</span>
+        <span *ngIf="isLast" class="text-xs bg-purple-100 text-purple-600 px-2 py-0.5 rounded">Last</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Task 3: Empty List Handling -->
+  <div class="border border-gray-200 rounded-lg p-5">
+    <h3 class="font-bold text-lg mb-1">Task 3 — Empty List Handling</h3>
+    <p class="text-gray-500 text-sm mb-4">Uses modern <code class="bg-gray-100 px-1 rounded">&#64;if</code> control flow</p>
+
+    @if (emptyList.length > 0) {
+      <ul>
+        <li *ngFor="let item of emptyList">{{ item }}</li>
+      </ul>
+    } @else {
+      <p class="text-red-500 bg-red-50 border border-red-200 rounded p-3">⚠ No Data Available</p>
+    }
+  </div>
+
+  <!-- Task 4: Conditional Styling -->
+  <div class="border border-gray-200 rounded-lg p-5">
+    <h3 class="font-bold text-lg mb-1">Task 4 — Conditional Styling</h3>
+    <p class="text-gray-500 text-sm mb-4">Uses <code class="bg-gray-100 px-1 rounded">ngClass</code> — green if marks &gt; 50, red otherwise</p>
+
+    <div class="flex items-center gap-4 mb-3">
+      <label class="text-sm font-medium">Marks:</label>
+      <input type="number" [(ngModel)]="marks"
+        class="border border-gray-300 rounded px-3 py-1 w-24 text-sm focus:outline-none focus:border-blue-400" />
+    </div>
+
+    <p class="px-4 py-2 rounded font-semibold inline-block"
+      [ngClass]="marks > 50 ? 'bg-green-100 text-green-700 border border-green-300' : 'bg-red-100 text-red-700 border border-red-300'">
+      {{ marks > 50 ? '✅ Pass — Marks: ' + marks : '❌ Fail — Marks: ' + marks }}
+    </p>
+  </div>
+
+  <!-- Task 5: Inline Styling -->
+  <div class="border border-gray-200 rounded-lg p-5">
+    <h3 class="font-bold text-lg mb-1">Task 5 — Inline Styling</h3>
+    <p class="text-gray-500 text-sm mb-4">Uses <code class="bg-gray-100 px-1 rounded">ngStyle</code> to change font size dynamically</p>
+
+    <div class="flex gap-3 mb-4">
+      <button (click)="decreaseFontSize()"
+        class="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded text-sm font-medium">A−</button>
+      <span class="text-sm text-gray-500 self-center">{{ fontSize }}px</span>
+      <button (click)="increaseFontSize()"
+        class="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded text-sm font-medium">A+</button>
+    </div>
+
+    <p [ngStyle]="{ 'font-size': fontSize + 'px' }" class="text-gray-700 border border-dashed border-gray-300 rounded p-3">
+      This text changes size dynamically using ngStyle!
+    </p>
+  </div>
+
+</div>
